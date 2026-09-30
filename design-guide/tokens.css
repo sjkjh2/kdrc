@@ -1,0 +1,154 @@
+/* ==========================================================================
+   KDRC Design Tokens  —  wp-content/themes/kdrc/css/tokens.css
+   --------------------------------------------------------------------------
+   - 1rem = 10px (reset.css: html{font-size:62.5%}). 모든 값은 짝수 px 기준.
+   - PC 값이 기본, 모바일(≤720px) 값은 아래 @media에서 같은 이름으로 덮어씀.
+   - 새 작업은 이 파일의 시맨틱 토큰만 사용한다.
+     common.css의 --fs-N / --sp-N(clamp 유동 토큰)은 기존 화면 호환용으로만 남긴다.
+   - enqueue 순서: reset.css → tokens.css → common.css → header.css → ...
+   ========================================================================== */
+
+:root {
+  /* ---------- Color : Brand ---------- */
+  --c-red:        #D82B52;  /* 브랜드 레드 — 포인트, 버튼 원, 활성 탭, 강조 숫자 */
+  --c-red-hover:  #B71F44;  /* 레드 요소 hover/active */
+  --c-red-tint:   #FDECEF;  /* 활성 해시태그 배경, 레드 계열 옅은 면 */
+  --c-ink:        #0F0C0C;  /* 헤더·서브 비주얼·푸터 등 다크 배경 */
+  --c-wine:       #451919;  /* 다크 그라데이션 끝색 (메인 수행실적 섹션) */
+
+  /* ---------- Color : Text ---------- */
+  --c-text:       #111827;  /* 제목, 본문 강조 */
+  --c-text-2:     #374151;  /* 본문(진) */
+  --c-text-3:     #4B5563;  /* 본문 기본 설명 */
+  --c-text-4:     #6B7280;  /* 보조 텍스트·메타(날짜, 라벨) — 흰 배경 최소 대비 */
+  --c-text-5:     #9CA3AF;  /* placeholder·비활성 전용 (본문 텍스트 사용 금지: 대비 2.5:1) */
+  --c-on-dark:    #D3D3D3;  /* 다크 배경 위 설명 문구 */
+  --c-white:      #FFFFFF;
+
+  /* ---------- Color : Surface / Line ---------- */
+  --c-bg:         #FFFFFF;
+  --c-bg-soft:    #F7F7F9;  /* 박스·어사이드·첨부파일 영역 */
+  --c-bg-muted:   #F3F4F6;  /* 해시태그 칩, 이미지 placeholder */
+  --c-line:       #E5E7EB;  /* 기본 구분선·카드 테두리 */
+  --c-line-2:     #D1D5DB;  /* 입력칸 테두리 */
+  --c-line-soft:  #EEF0F3;  /* 카드 내부 얇은 구분선 */
+  --c-line-strong:#111827;  /* 목록·표 상단 2px 라인 */
+  --c-line-dark:  rgba(255,255,255,.08); /* 다크 배경 위 구분선 */
+
+  /* ---------- Typography ---------- */
+  --font-base: 'Pretendard', system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  --fw-medium: 500;   /* 본문 기본 */
+  --fw-semi:   600;   /* 라벨·메타·보조 제목 */
+  --fw-bold:   700;   /* 버튼·탭·eyebrow */
+  --fw-heavy:  800;   /* 제목(h1~h3)·숫자 강조 */
+  --ls-tight:  -0.02em;  /* 제목 자간 */
+
+  /*            size          line-height */
+  --fs-display: 7.2rem;  --lh-display: 7.4rem;  /* 메인 히어로 */
+  --fs-h1:      5.6rem;  --lh-h1:      6.4rem;  /* 서브 비주얼 타이틀 */
+  --fs-h2:      4.0rem;  --lh-h2:      5.2rem;  /* 섹션 타이틀 */
+  --fs-h3:      2.2rem;  --lh-h3:      3.0rem;  /* 카드·블록 타이틀 */
+  --fs-h4:      2.0rem;  --lh-h4:      3.0rem;  /* 소제목 */
+  --fs-lead:    1.8rem;  --lh-lead:    2.8rem;  /* 리드 문구, 큰 본문 */
+  --fs-body:    1.6rem;  --lh-body:    2.6rem;  /* 본문 */
+  --fs-small:   1.4rem;  --lh-small:   2.2rem;  /* 보조 본문, 카드 설명 */
+  --fs-caption: 1.4rem;  --lh-caption: 2.0rem;  /* 메타·날짜·라벨 */
+  --fs-micro:   1.2rem;  --lh-micro:   1.8rem;  /* 칩·저작권 등 최소 크기 (12px 미만 금지) */
+  --fs-eyebrow: 1.8rem;                          /* 섹션 상단 영문 라벨 (빨간 바 + 텍스트) */
+  --fs-stat:    4.6rem;                          /* 통계 숫자 (line-height: 1) */
+
+  /* ---------- Spacing (짝수 px, 이름 = px 값) ----------
+     기존 common.css의 --sp-N(clamp 유동값)과 구분하기 위해 --space-N 사용 */
+  --space-4:   0.4rem;
+  --space-8:   0.8rem;
+  --space-12:  1.2rem;
+  --space-16:  1.6rem;
+  --space-20:  2.0rem;
+  --space-24:  2.4rem;
+  --space-32:  3.2rem;
+  --space-40:  4.0rem;
+  --space-48:  4.8rem;
+  --space-56:  5.6rem;
+  --space-64:  6.4rem;
+  --space-80:  8.0rem;
+  --space-96:  9.6rem;
+  --space-120: 12.0rem;
+
+  /* ---------- Layout ---------- */
+  --container:     120rem;  /* 콘텐츠 최대 폭 1200px */
+  --gutter-min:    12rem;   /* PC 최소 좌우 여백 (1440 기준 120px) */
+  --gutter: max(var(--gutter-min), calc((100% - var(--container)) / 2)); /* 배경 100% + 콘텐츠 1200 중앙 */
+  --header-h:      8.4rem;
+  --subhero-h:     36rem;
+  --subtab-h:      7.2rem;
+  --section-py:    12rem;   /* 섹션 상하 여백 */
+  --section-py-sm: 9.6rem;
+
+  /* ---------- Shape ---------- */
+  --radius-card: 0 2.8rem 0 0;   /* 카드: 오른쪽 위만 라운드 */
+  --radius-pill: 999.9rem;       /* 칩·원형 버튼 */
+  --radius-none: 0;              /* 입력칸·표·버튼 박스 */
+
+  /* ---------- Elevation ---------- */
+  --shadow-card:  0 1rem 3rem rgba(0,0,0,.08);
+  --shadow-float: 0 2.4rem 6rem rgba(15,12,12,.14);  /* 히어로 위 통계 바 등 */
+  --shadow-menu:  0 3rem 6rem rgba(0,0,0,.35);        /* GNB 메가메뉴 */
+
+  /* ---------- Component sizes ---------- */
+  --tbtn-fs:     1.8rem;  /* 텍스트 버튼 글자 */
+  --tbtn-gap:    1.4rem;
+  --tbtn-circle: 4.8rem;  /* 텍스트 버튼 빨간 원 */
+  --input-h:     5.2rem;
+  --chip-h:      3.6rem;
+  --touch-min:   4.4rem;  /* 최소 터치 영역 */
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(.22,1,.36,1);
+  --ease-io:  cubic-bezier(.65,0,.35,1);
+  --dur-fast: .15s;
+  --dur-base: .25s;
+  --dur-slow: .6s;
+
+  /* ---------- Z-index ---------- */
+  --z-header: 1000;
+  --z-mega:    998;
+  --z-dim:    1100;
+  --z-sheet:  1110;
+}
+
+/* ==========================================================================
+   Mobile (≤720px) — 같은 토큰 이름을 모바일 값으로 덮어씀
+   ========================================================================== */
+@media (max-width: 720px) {
+  :root {
+    --fs-display: 4.2rem;  --lh-display: 4.4rem;
+    --fs-h1:      3.4rem;  --lh-h1:      4.2rem;
+    --fs-h2:      2.6rem;  --lh-h2:      3.6rem;
+    --fs-h3:      2.0rem;  --lh-h3:      2.8rem;
+    --fs-h4:      1.8rem;  --lh-h4:      2.6rem;
+    --fs-lead:    1.6rem;  --lh-lead:    2.6rem;
+    --fs-body:    1.6rem;  --lh-body:    2.6rem;  /* 본문 16px 유지 (iOS 입력 확대 방지 포함) */
+    --fs-small:   1.4rem;  --lh-small:   2.2rem;
+    --fs-caption: 1.2rem;  --lh-caption: 1.8rem;
+    --fs-micro:   1.2rem;  --lh-micro:   1.8rem;
+    --fs-eyebrow: 1.4rem;
+    --fs-stat:    3.2rem;
+
+    --gutter:        2.4rem;
+    --header-h:      6.4rem;
+    --subhero-h:     auto;
+    --subtab-h:      5.6rem;
+    --section-py:    6.4rem;
+    --section-py-sm: 4.8rem;
+
+    --radius-card: 0 2rem 0 0;
+
+    --tbtn-fs:     1.6rem;
+    --tbtn-gap:    1.2rem;
+    --tbtn-circle: 4.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0s; --dur-base: 0s; --dur-slow: 0s; }
+}
